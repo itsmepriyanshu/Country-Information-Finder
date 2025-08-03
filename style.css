@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100% );
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+
+}
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 60px;
+
+}
+.header{
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+
+}
+.header h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.header p{
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+.search-container{
+    position: relative;
+    margin-bottom: 30px;
+
+}
+.search-input{
+    width:100%;
+    padding: 18px 24px;
+    font-weight: 1.1rem;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 355, 255, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+
+    
+}
+.search-input:focus{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255, 355, 255, 0.2);
+    background: white;
+
+}
+.search-input::placeholder{
+    color: #999;
+
+}
+.loading{
+    display: none;
+    text-align: center;
+    color: white;
+    margin: 20px 0; 
+
+}
+.spinner{
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: spin 1s linear infinite ;
+    margin: 0 auto 10px;
+}
+@keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.country-card{
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0 , 0, 0, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s ease;
+    display: none;
+    
+    
+}
+.country-card.show{
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+}
+.flag-container{
+    text-align: center;
+    margin-bottom: 24px;
+}
+.flag{
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+}
+.flag:hover{
+    transform: scale(1.05);
+
+}
+.country-name{
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color:#2d3748
+
+}
+
+.info-grid{
+    display: grid;
+    gap:16px
+}
+.info-item{
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.info-item:hover{
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateX(4px);
+}
+.info-icon{
+    width: 24 px;
+    height: 24px;
+    margin-right: 24px;
+    opacity: 0.8;
+
+}
+.info-label{
+    font-weight: 600;
+    color: #4a5568;
+    min-width: 80px;
+
+
+}
+.info-value{
+    font-weight: 500;
+    color: #2d3748;
+    flex: 1;
+
+}
+.error{
+     display: none; 
+     background: white;
+     backdrop-filter: blur(20px);
+     border-radius: 16px;
+     padding: 24px;
+     text-align: center;
+     color: tomato;
+     box-shadow: 0 8px 32px rgba(255, 99, 71, 0.1);
+}
+.error.show{
+    display:block;
+    animation: fadeIn 0.5 ease;
+}
+@keyframes fadeIn {
+    from{opacity:0; transform: translateY(10px);}
+    to{opacity: 1; transform: translateY(0);}
+
+}
+.suggestion-item{
+    padding: 12px 20px;
+    cursor:pointer;
+    transition: background 0.2 ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.suggestion-item:hover{
+    background: rgba(102, 126, 234, 0.1);
+}
+.suggestion-item:last-child{
+    border-bottom: none;
+}
+@media (max-width:640px) {
+    .header h1{
+        font-size: 2rem;
+    }
+    .country-card{
+        padding: 24px;
+
+    }
+    .info-item{
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .info-icon{
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+
+    
+}

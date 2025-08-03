@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Country Info Finder </h1>
+            <p>Discover information about my count </p>
+        </div>
+        <div class="search-container">
+            <input type="text" id="countryInput" class="search-input" placeholder="enter a country name....">
+            <div class="suggestions" id="suggestions"></div>
+
+        </div>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Searching for country information...</p>
+        </div>
+        <div class="error" id="error">
+            <h3>Country not found</h3>
+            <p>Please check the spelling and try again. You can serach by common name or official name.</p>
+        </div>
+        <div class="country-card" id="countryCard">
+            <div class="flag-container">
+                <img class="flag" id="flagImg" alt="Country-flag">
+            </div>
+            <h2 class="country-name" id="countryName"> United States</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                    <span class="info-label">Capital: </span>
+                    <span class="info-value" id="capital">Washington, D.C.</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17.997 18h-11.995l-.002-.623c0-1.259.1-1.986 1.588-2.33 1.684-.389 3.344-.736 2.545-2.209-2.366-4.363-.674-6.838 1.866-6.838 2.491 0 4.226 2.383 1.866 6.839-.775 1.464.826 1.812 2.545 2.209 1.49.344 1.589 1.072 1.589 2.333l-.002.619zm4.811-2.214c-1.29-.298-2.49-.559-1.909-1.657 1.769-3.342.469-5.129-1.4-5.129-1.265 0-2.248.817-2.248 2.324 0 3.903 2.268 1.77 2.246 6.676h4.501l.002-.463c0-.946-.074-1.493-1.192-1.751zm-22.806 2.214h4.501c-.021-4.906 2.246-2.772 2.246-6.676 0-1.507-.983-2.324-2.248-2.324-1.869 0-3.169 1.787-1.399 5.129.581 1.099-.619 1.359-1.909 1.657-1.119.258-1.193.805-1.193 1.751l.002.463z"/></svg>
+                    <span class="info-label">Population: </span>
+                    <span class="info-value" id="population">  1000000</span>
+
+                </div>                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/></svg>
+                    <span class="info-label">Region: </span>
+                    <span class="info-value" id="region">North America</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span class="info-label">Currency: </span>
+                    <span class="info-value" id="currency">USD</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.01-4.65.83-6.99l2.16-2.16c.56-.56.56-1.47 0-2.03s-1.47-.56-2.03 0L9.35 3.03c-2.34-1.18-5.05-.91-6.99.83l-.03.03-2.51-2.54c-.56-.56-1.47-.56-2.03 0s-.56 1.47 0 2.03l2.51 2.54.03.03c-1.74 1.94-2.01 4.65-.83 6.99l-2.16 2.16c-.56.56-.56 1.47 0 2.03s1.47.56 2.03 0l2.16-2.16c1.18 2.34.91 5.05-.83 6.99l-.03.03 2.51 2.54c.56.56 1.47.56 2.03 0s.56-1.47 0-2.03z"/></svg>
+                    <span class="info-label">Languages: </span>
+                    <span class="info-value" id="languages">English</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span class="info-label">Timezone: </span>
+                    <span class="info-value" id="timezone">UTC-5</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span class="info-label">Area: </span>
+                    <span class="info-value" id="area">9,833,517 km²</span>
+                </div>
+                <div class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span class="info-label">Calling Code: </span>
+                    <span class="info-value" id="callingCode">+1</span>
+                </div> 
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
